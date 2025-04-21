@@ -1,0 +1,9 @@
+{
+  "message.pvp_prot.protected": "You are now protected.",
+  "message.pvp_prot.announce": "%s is now protected!",
+  "message.pvp_prot.blocked": "You cannot attack a protected player!",
+  "message.pvp_prot.ended": "Your protection has ended.",
+  "message.pvp_prot.timer": "Protection time left: %s",
+  "message.pvp_prot.cannot_attack": "You cannot attack a player while the protection is active!",
+  "message.pvp_prot.protection_removed": "Your protection has been removed."
+}

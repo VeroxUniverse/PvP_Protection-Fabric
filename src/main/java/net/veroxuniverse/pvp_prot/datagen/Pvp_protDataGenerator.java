@@ -1,0 +1,12 @@
+package net.veroxuniverse.pvp_prot.datagen;
+
+import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+
+public class Pvp_protDataGenerator implements DataGeneratorEntrypoint {
+
+    @Override
+    public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
+        FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
+    }
+}

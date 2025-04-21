@@ -1,0 +1,7 @@
+{
+  "message.pvp_prot.protected": "Du bist jetzt für %d Minuten geschützt.",
+  "message.pvp_prot.announce": "%s steht jetzt unter Schutz!",
+  "message.pvp_prot.blocked": "Du kannst keinen geschützten Spieler angreifen!",
+  "message.pvp_prot.ended": "Dein Schutz ist abgelaufen.",
+  "message.pvp_prot.timer": "Verbleibender Schutz: %s"
+}

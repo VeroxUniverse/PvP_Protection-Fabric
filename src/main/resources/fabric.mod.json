@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "pvp_prot",
+  "version": "${version}",
+  "name": "PvP Protection",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "LGPL-3.0",
+  "icon": "assets/pvp_prot/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "net.veroxuniverse.pvp_prot.datagen.Pvp_protDataGenerator"
+    ],
+    "client": [
+      "net.veroxuniverse.pvp_prot.client.Pvp_protClient"
+    ],
+    "main": [
+      "net.veroxuniverse.pvp_prot.Pvp_prot"
+    ]
+  },
+  "mixins": [
+    "pvp_prot.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
