@@ -1,4 +1,4 @@
-package net.veroxuniverse.pvp_prot.config;
+package net.veroxuniverse.pvp_prot.configs;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

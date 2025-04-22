@@ -11,6 +11,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.veroxuniverse.pvp_prot.utils.PrefixUtil;
 
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
@@ -49,7 +50,8 @@ public class TeamSetDisplayNameCommand {
             return 0;
         }
 
-        team.setDisplayName(Text.literal(displayName));
+        PrefixUtil.setTeamDisplayNameAndPrefix(team, displayName);
+
         source.sendMessage(Text.literal("The display name for team \"" + teamName + "\" has been changed to \"" + displayName + "\".")
                 .styled(style -> style.withColor(Formatting.GREEN)));
 

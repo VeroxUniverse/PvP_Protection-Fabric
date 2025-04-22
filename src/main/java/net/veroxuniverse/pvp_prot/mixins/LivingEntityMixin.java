@@ -1,4 +1,4 @@
-package net.veroxuniverse.pvp_prot.mixin;
+package net.veroxuniverse.pvp_prot.mixins;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;

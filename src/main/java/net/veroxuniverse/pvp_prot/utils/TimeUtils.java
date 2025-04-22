@@ -1,4 +1,4 @@
-package net.veroxuniverse.pvp_prot.util;
+package net.veroxuniverse.pvp_prot.utils;
 
 public class TimeUtils {
 

@@ -11,7 +11,7 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.veroxuniverse.pvp_prot.util.TeamTrackerUtil;
+import net.veroxuniverse.pvp_prot.utils.PrefixUtil;
 
 import java.util.Objects;
 
@@ -19,6 +19,7 @@ import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
 public class TeamCreateCommand {
+
     public static LiteralCommandNode<ServerCommandSource> register() {
         return literal("create")
                 .then(argument("team_name", StringArgumentType.string())
@@ -49,9 +50,6 @@ public class TeamCreateCommand {
         }
 
         Team team = scoreboard.addTeam(teamName);
-        TeamTrackerUtil.add(teamName);
-        team.setDisplayName(Text.literal(displayName));
-
         try {
             Formatting color = Formatting.valueOf(colorString.toUpperCase());
             team.setColor(color);
@@ -62,6 +60,8 @@ public class TeamCreateCommand {
 
         boolean allowFriendlyFire = friendlyFire.equalsIgnoreCase("true");
         team.setFriendlyFireAllowed(allowFriendlyFire);
+
+        PrefixUtil.setTeamDisplayNameAndPrefix(team, displayName);
 
         if (source.getEntity() instanceof ServerPlayerEntity player) {
             scoreboard.addScoreHolderToTeam(player.getName().getString(), team);

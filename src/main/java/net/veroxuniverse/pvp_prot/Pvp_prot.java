@@ -1,7 +1,7 @@
 package net.veroxuniverse.pvp_prot;
 
 import net.fabricmc.api.ModInitializer;
-import net.veroxuniverse.pvp_prot.config.ProtectionConfig;
+import net.veroxuniverse.pvp_prot.configs.ProtectionConfig;
 import net.veroxuniverse.pvp_prot.setup.CommandRegistry;
 import net.veroxuniverse.pvp_prot.setup.ProtectionHandler;
 
@@ -16,5 +16,4 @@ public class Pvp_prot implements ModInitializer {
 
         CommandRegistry.registerCommands();
     }
-
 }

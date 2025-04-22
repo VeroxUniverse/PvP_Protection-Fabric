@@ -4,8 +4,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.veroxuniverse.pvp_prot.config.ProtectionConfig;
-import net.veroxuniverse.pvp_prot.util.TimeUtils;
+import net.veroxuniverse.pvp_prot.configs.ProtectionConfig;
+import net.veroxuniverse.pvp_prot.utils.TimeUtils;
 
 import java.util.HashMap;
 import java.util.Iterator;

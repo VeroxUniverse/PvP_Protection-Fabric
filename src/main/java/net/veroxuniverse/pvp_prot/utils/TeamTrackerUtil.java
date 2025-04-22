@@ -1,4 +1,4 @@
-package net.veroxuniverse.pvp_prot.util;
+package net.veroxuniverse.pvp_prot.utils;
 
 import java.util.Collections;
 import java.util.HashSet;
