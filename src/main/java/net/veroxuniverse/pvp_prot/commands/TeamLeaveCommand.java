@@ -7,7 +7,7 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.veroxuniverse.pvp_prot.util.TeamTrackerUtil;
+import net.veroxuniverse.pvp_prot.utils.TeamTrackerUtil;
 
 import static net.minecraft.server.command.CommandManager.literal;
 

@@ -6,7 +6,7 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.veroxuniverse.pvp_prot.config.ProtectionConfig;
+import net.veroxuniverse.pvp_prot.configs.ProtectionConfig;
 
 public class ProtectionConfigCommand {
 

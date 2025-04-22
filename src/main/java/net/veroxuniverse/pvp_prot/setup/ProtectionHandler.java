@@ -20,7 +20,7 @@ public class ProtectionHandler {
         AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
             if (!world.isClient && player instanceof ServerPlayerEntity attacker && entity instanceof ServerPlayerEntity target) {
                 if (ProtectionManager.isProtected(target)) {
-                    attacker.sendMessage(net.minecraft.text.Text.translatable("message.pvp_prot.blocked")
+                    attacker.sendMessage(net.minecraft.text.Text.literal("You cannot attack a protected player!")
                             .styled(style -> style.withColor(Formatting.RED) ), true);
                     return ActionResult.FAIL;
                 }

@@ -4,8 +4,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.veroxuniverse.pvp_prot.config.ProtectionConfig;
-import net.veroxuniverse.pvp_prot.util.TimeUtils;
+import net.veroxuniverse.pvp_prot.configs.ProtectionConfig;
+import net.veroxuniverse.pvp_prot.utils.TimeUtils;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -19,13 +19,12 @@ public class ProtectionManager {
         UUID id = player.getUuid();
         timers.put(id, ProtectionConfig.protectionMinutes * 60 * 20);
 
-        player.sendMessage(Text.translatable("message.pvp_prot.protected")
+        player.sendMessage(Text.literal("You are now protected.")
                 .styled(style -> style.withColor(Formatting.GREEN) ), true);
-
         MinecraftServer minecraftServer = player.getServer();
         if (minecraftServer != null)
-            player.getServer().getPlayerManager().broadcast(Text.translatable("message.pvp_prot.announce", player.getName())
-                .styled(style -> style.withColor(Formatting.RED) ), true);
+            player.getServer().getPlayerManager().broadcast(Text.literal(String.format("%s is now protected!", player.getName().getString()))
+                    .styled(style -> style.withColor(Formatting.RED) ), true);
     }
 
     public static boolean isProtected(ServerPlayerEntity player) {
@@ -36,15 +35,15 @@ public class ProtectionManager {
         UUID id = player.getUuid();
         if (timers.containsKey(id)) {
             timers.remove(id);
-            player.sendMessage(Text.translatable("message.pvp_prot.protection_removed")
+            player.sendMessage(Text.literal("Your protection has been removed.")
                     .styled(style -> style.withColor(Formatting.RED)), true);
         }
     }
 
     public static boolean handleDamage(ServerPlayerEntity target, ServerPlayerEntity attacker) {
         if (timers.containsKey(target.getUuid())) {
-            attacker.sendMessage(Text.translatable("message.pvp_prot.blocked")
-                    .styled(style -> style.withColor(Formatting.RED)), true);
+            attacker.sendMessage(Text.literal("You cannot attack a protected player!")
+                    .styled(style -> style.withColor(Formatting.RED) ), true);
             return false;
         }
         return true;
@@ -61,7 +60,7 @@ public class ProtectionManager {
 
             if (time <= 0) {
                 if (player != null) {
-                    player.sendMessage(Text.translatable("message.pvp_prot.ended")
+                    player.sendMessage(Text.literal("Your protection has ended.")
                             .styled(style -> style.withColor(Formatting.RED) ), true);
                 }
                 iterator.remove();
@@ -70,7 +69,7 @@ public class ProtectionManager {
 
                 if (time % 20 == 0 && player != null) {
                     String timeStr = TimeUtils.formatTicks(time);
-                    player.sendMessage(Text.translatable("message.pvp_prot.timer", timeStr)
+                    player.sendMessage(Text.literal(String.format("Protection time left: %s", timeStr))
                             .styled(style -> style.withColor(Formatting.YELLOW) ), true);
                 }
             }
