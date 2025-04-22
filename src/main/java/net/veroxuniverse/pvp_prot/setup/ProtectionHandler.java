@@ -10,12 +10,12 @@ import net.minecraft.util.Formatting;
 public class ProtectionHandler {
     public static void register() {
         ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register((world, entity, killedPlayer) -> {
-            if (killedPlayer instanceof ServerPlayerEntity player) {
+            if (killedPlayer instanceof ServerPlayerEntity) {
                 ProtectionManager.addPlayer((ServerPlayerEntity) killedPlayer);
             }
         });
 
-        ServerTickEvents.END_SERVER_TICK.register(server -> ProtectionManager.tick(server));
+        ServerTickEvents.END_SERVER_TICK.register(ProtectionManager::tick);
 
         AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
             if (!world.isClient && player instanceof ServerPlayerEntity attacker && entity instanceof ServerPlayerEntity target) {

@@ -21,7 +21,10 @@ public class ProtectionManager {
 
         player.sendMessage(Text.translatable("message.pvp_prot.protected")
                 .styled(style -> style.withColor(Formatting.GREEN) ), true);
-        player.getServer().getPlayerManager().broadcast(Text.translatable("message.pvp_prot.announce", player.getName())
+
+        MinecraftServer minecraftServer = player.getServer();
+        if (minecraftServer != null)
+            player.getServer().getPlayerManager().broadcast(Text.translatable("message.pvp_prot.announce", player.getName())
                 .styled(style -> style.withColor(Formatting.RED) ), true);
     }
 
@@ -41,7 +44,7 @@ public class ProtectionManager {
     public static boolean handleDamage(ServerPlayerEntity target, ServerPlayerEntity attacker) {
         if (timers.containsKey(target.getUuid())) {
             attacker.sendMessage(Text.translatable("message.pvp_prot.blocked")
-                    .styled(style -> style.withColor(Formatting.RED) ), true);
+                    .styled(style -> style.withColor(Formatting.RED)), true);
             return false;
         }
         return true;
